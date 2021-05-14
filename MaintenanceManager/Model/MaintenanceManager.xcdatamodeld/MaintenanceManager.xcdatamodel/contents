@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Department" representedClassName=".Department" syncable="YES" codeGenerationType="category">
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="person" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="department" inverseEntity="Person"/>
+    </entity>
+    <entity name="Job" representedClassName=".Job" syncable="YES" codeGenerationType="category">
+        <attribute name="jobRole" optional="YES" attributeType="String"/>
+        <relationship name="person" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="job" inverseEntity="Person"/>
+    </entity>
+    <entity name="Person" representedClassName=".Person" syncable="YES" codeGenerationType="category">
+        <attribute name="firstName" optional="YES" attributeType="String" defaultValueString="no firstName"/>
+        <attribute name="identifiant" optional="YES" attributeType="String"/>
+        <attribute name="lastName" optional="YES" attributeType="String" defaultValueString="no lastName"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <relationship name="department" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Department" inverseName="person" inverseEntity="Department"/>
+        <relationship name="job" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Job" inverseName="person" inverseEntity="Job"/>
+    </entity>
+    <elements>
+        <element name="Department" positionX="28.23016357421875" positionY="91.03277587890625" width="128" height="73"/>
+        <element name="Job" positionX="18.64434814453119" positionY="228.4549865722656" width="128" height="73"/>
+        <element name="Person" positionX="-220.1377563476562" positionY="70.92730712890625" width="136.4334106445312" height="133"/>
+    </elements>
+</model>
