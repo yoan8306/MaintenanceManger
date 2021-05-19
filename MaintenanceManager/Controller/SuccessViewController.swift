@@ -8,22 +8,25 @@
 import UIKit
 
 class SuccessViewController: UIViewController {
-
+    
+    var persons = Person.all
+    var signIn = Person()
+    
+    @IBOutlet weak var firstNameLabel: UILabel!
+    @IBOutlet weak var lastNameLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        initiliseUser()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func initiliseUser () {
+        for findPerson in persons {
+            if findPerson.identifiant == PersonLogged.personLogged {
+                firstNameLabel.text = findPerson.firstName
+                lastNameLabel.text = findPerson.lastName
+                signIn = findPerson
+            }
+        }
     }
-    */
-
 }

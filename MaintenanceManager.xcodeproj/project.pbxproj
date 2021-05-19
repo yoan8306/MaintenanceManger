@@ -14,15 +14,17 @@
 		5F2CDA072642C3F5003DBC0E /* CreatePersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2CDA062642C3F5003DBC0E /* CreatePersonViewController.swift */; };
 		5F2CDA0B2642CA43003DBC0E /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2CDA0A2642CA43003DBC0E /* PersonTableViewCell.swift */; };
 		5F2CDA0E26433624003DBC0E /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2CDA0D26433624003DBC0E /* SuccessViewController.swift */; };
-		5F676F6E2644296F00F92A54 /* DepartmentPickerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F676F6D2644296F00F92A54 /* DepartmentPickerData.swift */; };
-		5F676F712644298100F92A54 /* JobPickerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F676F702644298100F92A54 /* JobPickerData.swift */; };
+		5F34B5312653DEC40083473C /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F34B5302653DEC40083473C /* Report.swift */; };
 		5F6D6F3C2641E23200D014B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6D6F3B2641E23200D014B3 /* AppDelegate.swift */; };
 		5F6D6F3E2641E23200D014B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6D6F3D2641E23200D014B3 /* SceneDelegate.swift */; };
 		5F6D6F432641E23200D014B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6D6F412641E23200D014B3 /* Main.storyboard */; };
 		5F6D6F462641E23200D014B3 /* MaintenanceManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F6D6F442641E23200D014B3 /* MaintenanceManager.xcdatamodeld */; };
 		5F6D6F482641E23400D014B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F6D6F472641E23400D014B3 /* Assets.xcassets */; };
 		5F6D6F4B2641E23400D014B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6D6F492641E23400D014B3 /* LaunchScreen.storyboard */; };
+		5F6EE4692654443F008773D1 /* ChooseCategoryInterventionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6EE4682654443F008773D1 /* ChooseCategoryInterventionViewController.swift */; };
+		5F6EE46B265456BA008773D1 /* ReportFacilitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6EE46A265456BA008773D1 /* ReportFacilitiesViewController.swift */; };
 		5F89BF5D264DB880004CB332 /* PersonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F89BF5C264DB880004CB332 /* PersonDetailViewController.swift */; };
+		5FC130782651BE5C00412A17 /* PersonLogged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC130772651BE5C00412A17 /* PersonLogged.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,8 +35,7 @@
 		5F2CDA062642C3F5003DBC0E /* CreatePersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePersonViewController.swift; sourceTree = "<group>"; };
 		5F2CDA0A2642CA43003DBC0E /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
 		5F2CDA0D26433624003DBC0E /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
-		5F676F6D2644296F00F92A54 /* DepartmentPickerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentPickerData.swift; sourceTree = "<group>"; };
-		5F676F702644298100F92A54 /* JobPickerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobPickerData.swift; sourceTree = "<group>"; };
+		5F34B5302653DEC40083473C /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		5F6D6F382641E23200D014B3 /* MaintenanceManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MaintenanceManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F6D6F3B2641E23200D014B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F6D6F3D2641E23200D014B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,7 +44,10 @@
 		5F6D6F472641E23400D014B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F6D6F4A2641E23400D014B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5F6D6F4C2641E23400D014B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F6EE4682654443F008773D1 /* ChooseCategoryInterventionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCategoryInterventionViewController.swift; sourceTree = "<group>"; };
+		5F6EE46A265456BA008773D1 /* ReportFacilitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportFacilitiesViewController.swift; sourceTree = "<group>"; };
 		5F89BF5C264DB880004CB332 /* PersonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailViewController.swift; sourceTree = "<group>"; };
+		5FC130772651BE5C00412A17 /* PersonLogged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonLogged.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,11 +93,11 @@
 			isa = PBXGroup;
 			children = (
 				5F6D6F442641E23200D014B3 /* MaintenanceManager.xcdatamodeld */,
+				5FC130772651BE5C00412A17 /* PersonLogged.swift */,
 				5F2CD9F82642ACC9003DBC0E /* Person.swift */,
 				5F2CD9FB2642AEA7003DBC0E /* Department.swift */,
 				5F2CD9FF2642AF4D003DBC0E /* Job.swift */,
-				5F676F6D2644296F00F92A54 /* DepartmentPickerData.swift */,
-				5F676F702644298100F92A54 /* JobPickerData.swift */,
+				5F34B5302653DEC40083473C /* Report.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -116,6 +120,8 @@
 				5F2CDA062642C3F5003DBC0E /* CreatePersonViewController.swift */,
 				5F2CDA0D26433624003DBC0E /* SuccessViewController.swift */,
 				5F89BF5C264DB880004CB332 /* PersonDetailViewController.swift */,
+				5F6EE4682654443F008773D1 /* ChooseCategoryInterventionViewController.swift */,
+				5F6EE46A265456BA008773D1 /* ReportFacilitiesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -221,18 +227,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F6EE46B265456BA008773D1 /* ReportFacilitiesViewController.swift in Sources */,
 				5F2CD9F92642ACC9003DBC0E /* Person.swift in Sources */,
 				5F6D6F462641E23200D014B3 /* MaintenanceManager.xcdatamodeld in Sources */,
 				5F2CDA072642C3F5003DBC0E /* CreatePersonViewController.swift in Sources */,
 				5F2CDA0B2642CA43003DBC0E /* PersonTableViewCell.swift in Sources */,
 				5F6D6F3C2641E23200D014B3 /* AppDelegate.swift in Sources */,
+				5F34B5312653DEC40083473C /* Report.swift in Sources */,
 				5F6D6F3E2641E23200D014B3 /* SceneDelegate.swift in Sources */,
 				5F2CDA002642AF4D003DBC0E /* Job.swift in Sources */,
 				5F2CD9FC2642AEA7003DBC0E /* Department.swift in Sources */,
-				5F676F6E2644296F00F92A54 /* DepartmentPickerData.swift in Sources */,
-				5F676F712644298100F92A54 /* JobPickerData.swift in Sources */,
 				5F89BF5D264DB880004CB332 /* PersonDetailViewController.swift in Sources */,
+				5F6EE4692654443F008773D1 /* ChooseCategoryInterventionViewController.swift in Sources */,
 				5F2CDA0E26433624003DBC0E /* SuccessViewController.swift in Sources */,
+				5FC130782651BE5C00412A17 /* PersonLogged.swift in Sources */,
 				5F2CDA042642B1A8003DBC0E /* IdentificationConnexionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

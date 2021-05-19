@@ -61,20 +61,25 @@ var personSelectedCell = Person()
     }
     
     private func addPerson() {
-        let firstName = firstNameField.text?.trimmingCharacters(in: .whitespaces)
+        let firstName = firstNameField.text?.filter { !$0.isWhitespace }
         let lastName = lastNameField.text?.trimmingCharacters(in: .whitespaces)
         let password = passwordField.text?.trimmingCharacters(in: .whitespaces)
+        let initialFirstName = firstName?.components(separatedBy: "-")
+        var firstNameIdentifiant = ""
+        for string in initialFirstName! {
+            firstNameIdentifiant += String(string.first!.lowercased())
+        }
         
         guard let personFirstName = firstName, let personLastName = lastName, let personPassword = password else {
             return
         }
-        
+    
         let personDepartment = Department(context: AppDelegate.viewContext)
         let personJob = Job(context: AppDelegate.viewContext)
         let jobIndex = jobPickerView.selectedRow(inComponent: 0)
         let departmentIndex = departmentPickerView.selectedRow(inComponent: 0)
         var identifiant = String()
-        identifiant = String(personFirstName.lowercased().first!) + personLastName.lowercased()
+        identifiant = firstNameIdentifiant + personLastName.lowercased()
         
         personJob.jobRole = job[jobIndex]
         personDepartment.title = department[departmentIndex]

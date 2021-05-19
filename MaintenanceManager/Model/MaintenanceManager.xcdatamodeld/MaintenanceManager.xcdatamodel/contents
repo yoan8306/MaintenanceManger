@@ -15,10 +15,20 @@
         <attribute name="password" optional="YES" attributeType="String"/>
         <relationship name="department" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Department" inverseName="person" inverseEntity="Department"/>
         <relationship name="job" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Job" inverseName="person" inverseEntity="Job"/>
+        <relationship name="report" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Report" inverseName="person" inverseEntity="Report"/>
+    </entity>
+    <entity name="Report" representedClassName=".Report" syncable="YES" codeGenerationType="category">
+        <attribute name="bodyReport" optional="YES" attributeType="String"/>
+        <attribute name="dateClosure" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="dateRequest" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="initialRequest" optional="YES" attributeType="String"/>
+        <attribute name="numero" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="person" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="report" inverseEntity="Person"/>
     </entity>
     <elements>
-        <element name="Department" positionX="28.23016357421875" positionY="91.03277587890625" width="128" height="73"/>
-        <element name="Job" positionX="18.64434814453119" positionY="228.4549865722656" width="128" height="73"/>
-        <element name="Person" positionX="-220.1377563476562" positionY="70.92730712890625" width="136.4334106445312" height="133"/>
+        <element name="Department" positionX="-274.1497192382812" positionY="150.4896240234375" width="128" height="73"/>
+        <element name="Job" positionX="-133.7388305664063" positionY="191.7714233398438" width="128" height="73"/>
+        <element name="Person" positionX="-525.6763305664062" positionY="256.2959899902344" width="136.4334106445312" height="148"/>
+        <element name="Report" positionX="-119.3482055664062" positionY="288.0211486816406" width="128" height="133"/>
     </elements>
 </model>

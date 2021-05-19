@@ -18,3 +18,8 @@ class Department: NSManagedObject {
         return departments
     }
 }
+
+struct DepartmentPicker {
+  static let department = ["Control & Quality","Facilities","Filling Packaging","Engineering","RD Dx","RD Ls","Validation"]
+
+}

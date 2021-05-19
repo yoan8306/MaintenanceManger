@@ -45,6 +45,7 @@ class IdentificationConnexionViewController: UIViewController {
         for findPerson in persons {
             if findPerson.identifiant == identifiantField.text?.lowercased() {
                 if findPerson.password == passwordField.text {
+                    PersonLogged.personLogged = findPerson.identifiant!
                     success = true
                            initialiseView()
                     animationSuccessButton()
@@ -56,9 +57,6 @@ class IdentificationConnexionViewController: UIViewController {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            segue.identifier == "successSegue"
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         initialiseSuperUserView()

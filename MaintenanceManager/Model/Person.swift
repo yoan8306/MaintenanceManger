@@ -33,15 +33,20 @@ extension Person {
         do {
             try AppDelegate.viewContext.save()
         } catch {
-//            presentAlert()
         }
     }
-    
-//    private func presentAlert () {
-//        let alertVC = UIAlertController(title: "Erreur", message: "La personne que vous venez d'ajouter n'a pas être enregistrée pour une raison inconnue", preferredStyle: .alert)
-//        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-//        alertVC.addAction(action)
-//        present(alertVC, animated: true, completion: nil)
-//    }
 }
 
+class PersonLogged {
+    private struct Logged {
+    static let personLogged = String()
+}
+    static var personLogged: String {
+        get {
+            return UserDefaults.standard.string(forKey: Logged.personLogged) ?? "No value"
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: Logged.personLogged)
+        }
+    }
+}

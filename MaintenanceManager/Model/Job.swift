@@ -20,6 +20,6 @@ class Job: NSManagedObject {
      }
 }
 
-extension Job {
-
+struct JobPicker {
+  static  let job = ["Manager/Supervisor","Operator", "Technician"]
 }
