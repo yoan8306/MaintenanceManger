@@ -19,7 +19,12 @@ class Department: NSManagedObject {
     }
 }
 
-struct DepartmentPicker {
-  static let department = ["Control & Quality","Facilities","Filling Packaging","Engineering","RD Dx","RD Ls","Validation"]
-
+struct DepartmentList {
+  static let department = ["Control & Quality",
+                           "Facilities",
+                           "Filling Packaging",
+                           "Engineering",
+                           "RD Dx",
+                           "RD Ls",
+                           "Validation"]
 }

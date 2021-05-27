@@ -20,6 +20,6 @@ class Job: NSManagedObject {
      }
 }
 
-struct JobPicker {
+struct JobList {
   static  let job = ["Manager/Supervisor","Operator", "Technician"]
 }

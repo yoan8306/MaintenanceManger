@@ -23,8 +23,8 @@ class PersonDetailViewController: UIViewController {
     @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var departmentJobLabel: UILabel!
     
-    var job = JobPicker.job
-    var department = DepartmentPicker.department
+    var job = JobList.job
+    var department = DepartmentList.department
     
     @IBAction func departmentSwitchAction() {
         if departmentSwitch.isOn {
@@ -58,8 +58,8 @@ class PersonDetailViewController: UIViewController {
         resetView()
     }
     
-    @IBAction func cancelButton() {
-        dismiss(animated: true)
+    @IBAction func cancelButton(sender: UIButton) {
+        navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {
@@ -102,6 +102,10 @@ class PersonDetailViewController: UIViewController {
                 personSelected.password = confirmPasswordField.text
                 passwordField.text = ""
                 confirmPasswordField.text = ""
+                passwordLabel.isHidden = true
+                passwordField.layer.borderWidth = 0
+                confirmPasswordField.layer.borderWidth = 0
+                passwordSwitch.isOn = false
             }
         }
         do {
@@ -122,6 +126,9 @@ class PersonDetailViewController: UIViewController {
             passwordField.text = ""
             confirmPasswordField.isHidden = true
             confirmPasswordField.text = ""
+            passwordField.layer.borderWidth = 0
+            confirmPasswordField.layer.borderWidth = 0
+            
         }
         departmentJobLabel.text = "\(personSelected.department?.title ?? "No department") / \(personSelected.job?.jobRole ?? "No job")"
     }

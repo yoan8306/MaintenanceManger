@@ -13,8 +13,8 @@ var personSelectedCell = Person()
     var person = Person()
    
     
-    let department = DepartmentPicker.department
-    let job = JobPicker.job
+    let department = DepartmentList.department
+    let job = JobList.job
     var jobIndex : String = "no job"
     var departmentIndex : String = "no department"
     
@@ -194,7 +194,6 @@ extension CreatePersonViewController: UITableViewDataSource {
             personSelectedVC.personSelected = personSelectedCell
         }
     }
-   
 }
 
 extension CreatePersonViewController: UITableViewDelegate {
@@ -207,13 +206,9 @@ extension CreatePersonViewController: UITableViewDelegate {
             try? AppDelegate.viewContext.save()
         }
     }
-   
 }
 
-
-
 extension CreatePersonViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
