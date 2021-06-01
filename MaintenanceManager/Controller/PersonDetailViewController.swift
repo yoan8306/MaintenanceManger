@@ -8,7 +8,7 @@
 import UIKit
 
 class PersonDetailViewController: UIViewController {
-    var personSelected = Person()
+    var personSelected = Person(context: AppDelegate.viewContext)
 
     @IBOutlet weak var departmentPickerView: UIPickerView!
     @IBOutlet weak var jobPickerView: UIPickerView!
@@ -23,8 +23,8 @@ class PersonDetailViewController: UIViewController {
     @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var departmentJobLabel: UILabel!
     
-    var job = JobList.job
-    var department = DepartmentList.department
+    var job = Job.all
+    var department = Department.all
     
     @IBAction func departmentSwitchAction() {
         if departmentSwitch.isOn {
@@ -40,7 +40,6 @@ class PersonDetailViewController: UIViewController {
         } else {
             jobPickerView.isHidden = true
         }
-       
     }
     
     @IBAction func passwordSwitchAction() {
@@ -91,11 +90,11 @@ class PersonDetailViewController: UIViewController {
     private func saveNewData() {
         if jobSwitch.isOn {
             let jobIndex = jobPickerView.selectedRow(inComponent: 0)
-            personSelected.job?.jobRole = job[jobIndex]
+            personSelected.job = job[jobIndex]
         }
         if departmentSwitch.isOn {
             let departmentIndex = departmentPickerView.selectedRow(inComponent: 0)
-            personSelected.department?.title = department[departmentIndex]
+            personSelected.department = department[departmentIndex]
         }
         if passwordSwitch.isOn {
             if checkPassWord() {
@@ -159,10 +158,10 @@ extension PersonDetailViewController: UIPickerViewDataSource, UIPickerViewDelega
         func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
             if pickerView == departmentPickerView {
                 let titleRow = department[row]
-                return titleRow
+                return titleRow.title
             } else if pickerView == jobPickerView {
                 let titleRow = job[row]
-                return titleRow
+                return titleRow.jobRole
             }
             return ""
         }

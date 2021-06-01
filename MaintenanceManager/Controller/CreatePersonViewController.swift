@@ -13,8 +13,8 @@ var personSelectedCell = Person()
     var person = Person()
    
     
-    let department = DepartmentList.department
-    let job = JobList.job
+    let department = Department.all
+    let job = Job.all
     var jobIndex : String = "no job"
     var departmentIndex : String = "no department"
     
@@ -29,6 +29,8 @@ var personSelectedCell = Person()
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var confirmPasswordField: UITextField!
+    @IBOutlet weak var addDepartmentButton: UIButton!
+    @IBOutlet weak var addJobRoleButton: UIButton!
     
     
     @IBAction func hideKeyboard(_ sender: UITapGestureRecognizer) {
@@ -39,6 +41,7 @@ var personSelectedCell = Person()
     
     override func viewDidLoad() {
         persons = Person.all
+        designedButtonAdd()
         createButtonDesign()
     }
     
@@ -46,8 +49,6 @@ var personSelectedCell = Person()
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
-    
-   
     
     @IBAction func createButton() {
         if checkField() && checkPassWord() {
@@ -60,12 +61,19 @@ var personSelectedCell = Person()
         }
     }
     
+    private func designedButtonAdd() {
+        addDepartmentButton.layer.cornerRadius = 8
+        addJobRoleButton.layer.cornerRadius = 8
+    }
+    
     private func addPerson() {
         let firstName = firstNameField.text?.filter { !$0.isWhitespace }
         let lastName = lastNameField.text?.trimmingCharacters(in: .whitespaces)
         let password = passwordField.text?.trimmingCharacters(in: .whitespaces)
+        
         let initialFirstName = firstName?.components(separatedBy: "-")
         var firstNameIdentifiant = ""
+
         for string in initialFirstName! {
             firstNameIdentifiant += String(string.first!.lowercased())
         }
@@ -73,18 +81,28 @@ var personSelectedCell = Person()
         guard let personFirstName = firstName, let personLastName = lastName, let personPassword = password else {
             return
         }
-    
-        let personDepartment = Department(context: AppDelegate.viewContext)
-        let personJob = Job(context: AppDelegate.viewContext)
-        let jobIndex = jobPickerView.selectedRow(inComponent: 0)
-        let departmentIndex = departmentPickerView.selectedRow(inComponent: 0)
-        var identifiant = String()
+            var identifiant = String()
         identifiant = firstNameIdentifiant + personLastName.lowercased()
         
-        personJob.jobRole = job[jobIndex]
-        personDepartment.title = department[departmentIndex]
+        let person = Person(context: AppDelegate.viewContext)
+        person.firstName = personFirstName
+        person.lastName = personLastName
+        person.password = personPassword
+        person.department = getSelectDepartment()
+        person.identifiant = identifiant
+        person.job = getSelectJob()
+        try? AppDelegate.viewContext.save()
         
-        person.savePerson(firstName: personFirstName, lastName: personLastName, password: personPassword, jobRole: personJob, department: personDepartment, identifiant: identifiant)
+    }
+    
+    private func getSelectDepartment() -> Department? {
+        let index = departmentPickerView.selectedRow(inComponent: 0)
+        return department[index]
+    }
+    
+    private func getSelectJob() -> Job? {
+        let index = jobPickerView.selectedRow(inComponent: 0)
+        return job[index]
     }
     
     
@@ -151,7 +169,6 @@ var personSelectedCell = Person()
         }
     }
     
-    
     private func createButtonDesign() {
         createButtonOutlet.layer.cornerRadius = 8
         createButtonOutlet.layer.borderWidth = 3
@@ -160,12 +177,8 @@ var personSelectedCell = Person()
         createButtonOutlet.layer.shadowRadius = 8
         createButtonOutlet.layer.shadowColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         createButtonOutlet.layer.shadowOpacity = 1
-        
     }
-    
 }
-
-
 
 extension CreatePersonViewController: UITableViewDataSource {
     
@@ -179,7 +192,7 @@ extension CreatePersonViewController: UITableViewDataSource {
         }
         let person = persons[indexPath.row]
         
-        cell.configure(firstName: person.firstName!, lastName: person.lastName!, password: person.password ?? "No passWord", department: person.department?.title ?? "No department", jobRole: (person.job?.jobRole)!, identifiant: person.identifiant ?? "No identifiant")
+        cell.configure(firstName: person.firstName!, lastName: person.lastName!, password: person.password ?? "No passWord", department: person.department?.title ?? "No department", jobRole: (person.job?.jobRole) ?? "No value", identifiant: person.identifiant ?? "No identifiant")
         return cell
     }
    
@@ -226,20 +239,12 @@ extension CreatePersonViewController: UIPickerViewDelegate, UIPickerViewDataSour
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == departmentPickerView {
             let titleRow = department[row]
-            return titleRow
+            return titleRow.title
         } else if pickerView == jobPickerView {
             let titleRow = job[row]
-            return titleRow
+            return titleRow.jobRole
         }
         return ""
     }
-    
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        if pickerView == departmentPickerView {
-//          print(self.department[row])
-//        } else if pickerView == jobPickerView {
-//          print(self.job[row])
-//        }
-//    }
     
 }

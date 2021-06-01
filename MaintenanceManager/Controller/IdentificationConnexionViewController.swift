@@ -26,7 +26,7 @@ class IdentificationConnexionViewController: UIViewController {
         principalView.alpha = 0.7
     }
     @IBAction func superUserButton() {
-        if superUserField.text == "Admin" && passwordSuperUserField.text == "MasterKey" {
+        if superUserField.text == "Admin" && passwordSuperUserField.text == "" {//"MasterKey" {
            initialiseSuperUserView()
             performSegue(withIdentifier: "bddSuperUserSegue", sender: self)
         }

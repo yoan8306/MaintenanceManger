@@ -16,6 +16,10 @@
 		5F2CDA0B2642CA43003DBC0E /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2CDA0A2642CA43003DBC0E /* PersonTableViewCell.swift */; };
 		5F2CDA0E26433624003DBC0E /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2CDA0D26433624003DBC0E /* SuccessViewController.swift */; };
 		5F34B5312653DEC40083473C /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F34B5302653DEC40083473C /* Report.swift */; };
+		5F41AAC026617F930047C622 /* NewDepartmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F41AABF26617F930047C622 /* NewDepartmentViewController.swift */; };
+		5F5A6B2D26663B1C00AAFB9C /* Machine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5A6B2C26663B1C00AAFB9C /* Machine.swift */; };
+		5F5A6B2F2666427000AAFB9C /* NewMachineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5A6B2E2666427000AAFB9C /* NewMachineViewController.swift */; };
+		5F5A6B31266643E900AAFB9C /* MachineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5A6B30266643E900AAFB9C /* MachineTableViewCell.swift */; };
 		5F6D6F3C2641E23200D014B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6D6F3B2641E23200D014B3 /* AppDelegate.swift */; };
 		5F6D6F3E2641E23200D014B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6D6F3D2641E23200D014B3 /* SceneDelegate.swift */; };
 		5F6D6F432641E23200D014B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6D6F412641E23200D014B3 /* Main.storyboard */; };
@@ -25,7 +29,10 @@
 		5F6EE4692654443F008773D1 /* ChooseCategoryInterventionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6EE4682654443F008773D1 /* ChooseCategoryInterventionViewController.swift */; };
 		5F6EE46B265456BA008773D1 /* RequestFacilitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6EE46A265456BA008773D1 /* RequestFacilitiesViewController.swift */; };
 		5F89BF5D264DB880004CB332 /* PersonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F89BF5C264DB880004CB332 /* PersonDetailViewController.swift */; };
+		5FA4D6CD2664BB3900D1153B /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4D6CC2664BB3900D1153B /* AlertMessage.swift */; };
 		5FC130782651BE5C00412A17 /* PersonLogged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC130772651BE5C00412A17 /* PersonLogged.swift */; };
+		5FCBCDF226641D4C00E0B14D /* NewJobRoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCBCDF126641D4C00E0B14D /* NewJobRoleViewController.swift */; };
+		5FEE6F8C2662D0DB004C5E48 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEE6F8B2662D0DB004C5E48 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +45,10 @@
 		5F2CDA0A2642CA43003DBC0E /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
 		5F2CDA0D26433624003DBC0E /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		5F34B5302653DEC40083473C /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
+		5F41AABF26617F930047C622 /* NewDepartmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDepartmentViewController.swift; sourceTree = "<group>"; };
+		5F5A6B2C26663B1C00AAFB9C /* Machine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Machine.swift; sourceTree = "<group>"; };
+		5F5A6B2E2666427000AAFB9C /* NewMachineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMachineViewController.swift; sourceTree = "<group>"; };
+		5F5A6B30266643E900AAFB9C /* MachineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineTableViewCell.swift; sourceTree = "<group>"; };
 		5F6D6F382641E23200D014B3 /* MaintenanceManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MaintenanceManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F6D6F3B2641E23200D014B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F6D6F3D2641E23200D014B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,7 +60,10 @@
 		5F6EE4682654443F008773D1 /* ChooseCategoryInterventionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCategoryInterventionViewController.swift; sourceTree = "<group>"; };
 		5F6EE46A265456BA008773D1 /* RequestFacilitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFacilitiesViewController.swift; sourceTree = "<group>"; };
 		5F89BF5C264DB880004CB332 /* PersonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailViewController.swift; sourceTree = "<group>"; };
+		5FA4D6CC2664BB3900D1153B /* AlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
 		5FC130772651BE5C00412A17 /* PersonLogged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonLogged.swift; sourceTree = "<group>"; };
+		5FCBCDF126641D4C00E0B14D /* NewJobRoleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewJobRoleViewController.swift; sourceTree = "<group>"; };
+		5FEE6F8B2662D0DB004C5E48 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +115,8 @@
 				5F2CD9FF2642AF4D003DBC0E /* Job.swift */,
 				5F34B5302653DEC40083473C /* Report.swift */,
 				5F03CEFF265D43E90059781D /* machineList.swift */,
+				5FA4D6CC2664BB3900D1153B /* AlertMessage.swift */,
+				5F5A6B2C26663B1C00AAFB9C /* Machine.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -112,6 +128,7 @@
 				5F6D6F412641E23200D014B3 /* Main.storyboard */,
 				5F6D6F472641E23400D014B3 /* Assets.xcassets */,
 				5F2CDA0A2642CA43003DBC0E /* PersonTableViewCell.swift */,
+				5F5A6B30266643E900AAFB9C /* MachineTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -125,6 +142,9 @@
 				5F89BF5C264DB880004CB332 /* PersonDetailViewController.swift */,
 				5F6EE4682654443F008773D1 /* ChooseCategoryInterventionViewController.swift */,
 				5F6EE46A265456BA008773D1 /* RequestFacilitiesViewController.swift */,
+				5F41AABF26617F930047C622 /* NewDepartmentViewController.swift */,
+				5FCBCDF126641D4C00E0B14D /* NewJobRoleViewController.swift */,
+				5F5A6B2E2666427000AAFB9C /* NewMachineViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -134,6 +154,7 @@
 			children = (
 				5F6D6F3B2641E23200D014B3 /* AppDelegate.swift */,
 				5F6D6F3D2641E23200D014B3 /* SceneDelegate.swift */,
+				5FEE6F8B2662D0DB004C5E48 /* Extension.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -230,14 +251,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F41AAC026617F930047C622 /* NewDepartmentViewController.swift in Sources */,
 				5F6EE46B265456BA008773D1 /* RequestFacilitiesViewController.swift in Sources */,
+				5F5A6B2D26663B1C00AAFB9C /* Machine.swift in Sources */,
 				5F2CD9F92642ACC9003DBC0E /* Person.swift in Sources */,
 				5F6D6F462641E23200D014B3 /* MaintenanceManager.xcdatamodeld in Sources */,
 				5F2CDA072642C3F5003DBC0E /* CreatePersonViewController.swift in Sources */,
 				5F2CDA0B2642CA43003DBC0E /* PersonTableViewCell.swift in Sources */,
+				5FA4D6CD2664BB3900D1153B /* AlertMessage.swift in Sources */,
 				5F6D6F3C2641E23200D014B3 /* AppDelegate.swift in Sources */,
 				5F34B5312653DEC40083473C /* Report.swift in Sources */,
+				5F5A6B31266643E900AAFB9C /* MachineTableViewCell.swift in Sources */,
+				5FCBCDF226641D4C00E0B14D /* NewJobRoleViewController.swift in Sources */,
+				5F5A6B2F2666427000AAFB9C /* NewMachineViewController.swift in Sources */,
 				5F6D6F3E2641E23200D014B3 /* SceneDelegate.swift in Sources */,
+				5FEE6F8C2662D0DB004C5E48 /* Extension.swift in Sources */,
 				5F2CDA002642AF4D003DBC0E /* Job.swift in Sources */,
 				5F2CD9FC2642AEA7003DBC0E /* Department.swift in Sources */,
 				5F89BF5D264DB880004CB332 /* PersonDetailViewController.swift in Sources */,

@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Department" representedClassName=".Department" syncable="YES" codeGenerationType="category">
         <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="machine" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Machine" inverseName="department" inverseEntity="Machine"/>
         <relationship name="person" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="department" inverseEntity="Person"/>
     </entity>
     <entity name="Job" representedClassName=".Job" syncable="YES" codeGenerationType="category">
         <attribute name="jobRole" optional="YES" attributeType="String"/>
         <relationship name="person" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="job" inverseEntity="Person"/>
+    </entity>
+    <entity name="Machine" representedClassName=".Machine" syncable="YES" codeGenerationType="category">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="serialNumber" optional="YES" attributeType="String" defaultValueString="No serial number"/>
+        <relationship name="department" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Department" inverseName="machine" inverseEntity="Department"/>
+        <relationship name="report" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Report" inverseName="machine" inverseEntity="Report"/>
     </entity>
     <entity name="Person" representedClassName=".Person" syncable="YES" codeGenerationType="category">
         <attribute name="firstName" optional="YES" attributeType="String" defaultValueString="no firstName"/>
@@ -23,12 +30,14 @@
         <attribute name="dateRequest" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="initialRequest" optional="YES" attributeType="String"/>
         <attribute name="numero" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="machine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Machine" inverseName="report" inverseEntity="Machine"/>
         <relationship name="person" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="report" inverseEntity="Person"/>
     </entity>
     <elements>
-        <element name="Department" positionX="-274.1497192382812" positionY="150.4896240234375" width="128" height="73"/>
-        <element name="Job" positionX="-133.7388305664063" positionY="191.7714233398438" width="128" height="73"/>
-        <element name="Person" positionX="-525.6763305664062" positionY="256.2959899902344" width="136.4334106445312" height="148"/>
-        <element name="Report" positionX="-119.3482055664062" positionY="288.0211486816406" width="128" height="133"/>
+        <element name="Department" positionX="-289.9609985351562" positionY="83.59280395507812" width="128" height="88"/>
+        <element name="Job" positionX="-255.3903198242188" positionY="203.1885681152344" width="128" height="73"/>
+        <element name="Person" positionX="-559.1846923828125" positionY="172.7144317626953" width="136.4334106445312" height="148"/>
+        <element name="Report" positionX="-248.1791381835937" positionY="285.6499938964844" width="128" height="148"/>
+        <element name="Machine" positionX="-62.9808349609375" positionY="-3.299713134765625" width="128" height="103"/>
     </elements>
 </model>

@@ -10,6 +10,8 @@ import UIKit
 class RequestFacilitiesViewController: UIViewController {
     var colorBorderTextField = #colorLiteral(red: 0.7490938306, green: 0.7686418295, blue: 0.7889478803, alpha: 0.9531830937).cgColor
     let interventionTypeDict = ["Amélioration", "Correctif", "Préventif", "Travaux Neuf"]
+    var departments = Department.all
+    var machines = Machine.all
     
     @IBOutlet var generalView: UIView!
     
@@ -28,8 +30,7 @@ class RequestFacilitiesViewController: UIViewController {
     @IBOutlet weak var interventionTypeTableView: UITableView!
     @IBOutlet weak var machineButtonOutlet: UIButton!
     @IBOutlet weak var machineUiView: UIView!
-    @IBOutlet weak var MachineTableView: UITableView!
-    
+    @IBOutlet weak var machineTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,7 @@ class RequestFacilitiesViewController: UIViewController {
     }
     
     @IBAction func machineButton() {
+        machineTableView.reloadData()
         showOrHiddenMachineUiView()
     }
    
@@ -161,14 +163,18 @@ class RequestFacilitiesViewController: UIViewController {
         view.addSubview(blurEffectView)
     }
 }
+
 ///Mark Table View ///
+
 extension RequestFacilitiesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var numberSection = 0
         if  tableView == interventionTypeTableView {
             numberSection = interventionTypeDict.count
         } else if tableView == departmentTableView {
-            numberSection = DepartmentList.department.count
+            numberSection = departments.count
+        } else if tableView == machineTableView {
+            numberSection = Machine.listByDepartment(departmentField: departmentField.text!).count
         }
             return numberSection
     }
@@ -180,10 +186,17 @@ extension RequestFacilitiesViewController: UITableViewDelegate, UITableViewDataS
          cell = tableView.dequeueReusableCell(withIdentifier: "interventionTypeCell", for: indexPath)
         let type = interventionTypeDict[indexPath.row]
         cell.textLabel?.text = type
-        } else if tableView == departmentTableView {
+        } else
+        if tableView == departmentTableView {
             cell = tableView.dequeueReusableCell(withIdentifier: "departmentCell", for: indexPath)
-            let department = DepartmentList.department[indexPath.row]
-            cell.textLabel?.text = department
+            let department = departments[indexPath.row]
+            cell.textLabel?.text = department.title
+        } else
+        if tableView == machineTableView {
+            cell =  tableView.dequeueReusableCell(withIdentifier: "machineCell", for: indexPath)
+            let machine = Machine.listByDepartment(departmentField: departmentField.text!)[indexPath.row]
+            cell.textLabel?.text = machine.name
+            cell.detailTextLabel?.text = machine.serialNumber
         }
         return cell
     }
@@ -193,8 +206,14 @@ extension RequestFacilitiesViewController: UITableViewDelegate, UITableViewDataS
         interventionTypeTexField.text = interventionTypeDict[indexPath.row]
         interventionTypeUiView.isHidden = true
         } else if tableView == departmentTableView {
-            departmentField.text = DepartmentList.department[indexPath.row]
+            let select = departments[indexPath.row]
+            departmentField.text = select.title
+            machineTextField.text = ""
             departmentUiView.isHidden = true
+        } else if tableView == machineTableView {
+            let machineSelected = MachineList.filterMachineByDepartment(field: departmentField.text!)[indexPath.row]
+            machineTextField.text = machineSelected.machineName + " - S/N: " + machineSelected.serialNumber
+            machineUiView.isHidden = true
         }
     }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cg2-xT-fIf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L98-Mr-4Ya">
     <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -179,6 +179,131 @@
             </objects>
             <point key="canvasLocation" x="390" y="213"/>
         </scene>
+        <!--Create new mahine-->
+        <scene sceneID="ENH-nh-Xgc">
+            <objects>
+                <viewController id="3UR-aF-cnk" customClass="NewMachineViewController" customModule="MaintenanceManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="m9Q-uG-Mmo">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3W7-4j-rIH">
+                                <rect key="frame" x="50" y="80" width="924" height="1216"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="w5K-HA-rtr">
+                                        <rect key="frame" x="0.0" y="0.0" width="924" height="352"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Machine name" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OdZ-58-ImS">
+                                                <rect key="frame" x="0.0" y="0.0" width="924" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Serial number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WBn-Tc-V6t">
+                                                <rect key="frame" x="0.0" y="43" width="924" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mbR-Xi-pKT">
+                                                <rect key="frame" x="0.0" y="86" width="924" height="216"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="3UR-aF-cnk" id="7Pq-2N-9Lw"/>
+                                                    <outlet property="delegate" destination="3UR-aF-cnk" id="3NN-DL-mCV"/>
+                                                </connections>
+                                            </pickerView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gwc-hj-4pX">
+                                                <rect key="frame" x="0.0" y="311" width="924" height="41"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <state key="normal" title="Create"/>
+                                                <connections>
+                                                    <action selector="createMachineButton:" destination="3UR-aF-cnk" eventType="touchUpInside" id="O5c-3Q-Y3Z"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gPH-JY-4YM">
+                                        <rect key="frame" x="0.0" y="362" width="924" height="854"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MachineCell" id="eSo-WP-uZ9" customClass="MachineTableViewCell" customModule="MaintenanceManager" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="24.5" width="924" height="70.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eSo-WP-uZ9" id="qnq-EV-ouh">
+                                                    <rect key="frame" x="0.0" y="0.0" width="924" height="70.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="CMd-UI-9eU">
+                                                            <rect key="frame" x="0.0" y="0.0" width="924" height="70.5"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="I6C-xH-coT">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="461" height="70.5"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTI-wm-Nfo">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="59" height="30"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttX-hL-nP1">
+                                                                            <rect key="frame" x="0.0" y="40" width="59" height="30.5"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69j-f4-glw">
+                                                                    <rect key="frame" x="463" y="0.0" width="461" height="70.5"/>
+                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                                    <color key="textColor" systemColor="systemOrangeColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="CMd-UI-9eU" firstAttribute="leading" secondItem="qnq-EV-ouh" secondAttribute="leading" id="7sQ-6C-yNZ"/>
+                                                        <constraint firstAttribute="bottom" secondItem="CMd-UI-9eU" secondAttribute="bottom" id="WU6-GA-jtr"/>
+                                                        <constraint firstItem="CMd-UI-9eU" firstAttribute="top" secondItem="qnq-EV-ouh" secondAttribute="top" id="oZ8-lc-Q3u"/>
+                                                        <constraint firstAttribute="trailing" secondItem="CMd-UI-9eU" secondAttribute="trailing" id="rlA-Mb-U24"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="machineDepartmentLabel" destination="69j-f4-glw" id="J0d-l9-13F"/>
+                                                    <outlet property="machineNameLabel" destination="fTI-wm-Nfo" id="fIG-ds-trB"/>
+                                                    <outlet property="serialNumberLabel" destination="ttX-hL-nP1" id="tYA-hS-ZAg"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="3UR-aF-cnk" id="1Fv-zY-iFm"/>
+                                            <outlet property="delegate" destination="3UR-aF-cnk" id="8TU-eP-omZ"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2Xx-QP-T4m"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2Xx-QP-T4m" firstAttribute="trailing" secondItem="3W7-4j-rIH" secondAttribute="trailing" constant="50" id="7ea-9Y-rnb"/>
+                            <constraint firstItem="2Xx-QP-T4m" firstAttribute="bottom" secondItem="3W7-4j-rIH" secondAttribute="bottom" id="MQE-rw-XjS"/>
+                            <constraint firstItem="3W7-4j-rIH" firstAttribute="top" secondItem="2Xx-QP-T4m" secondAttribute="top" constant="30" id="aAH-pV-m6n"/>
+                            <constraint firstItem="3W7-4j-rIH" firstAttribute="leading" secondItem="2Xx-QP-T4m" secondAttribute="leading" constant="50" id="khF-UA-iYh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create new mahine" id="cm8-Fz-6NI"/>
+                    <connections>
+                        <outlet property="createMachineOutletButton" destination="Gwc-hj-4pX" id="uQl-kZ-Nsk"/>
+                        <outlet property="departmentPickerView" destination="mbR-Xi-pKT" id="5lP-yU-qjT"/>
+                        <outlet property="machineTableView" destination="gPH-JY-4YM" id="teX-fm-WOS"/>
+                        <outlet property="newMachineTextField" destination="OdZ-58-ImS" id="6IV-SH-Ipx"/>
+                        <outlet property="newSerialNumberTextField" destination="WBn-Tc-V6t" id="GW5-Ew-i1v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xze-lQ-HjW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1918.9453124999998" y="964.56808199121519"/>
+        </scene>
         <!--Identification Success-->
         <scene sceneID="2Cu-QE-oLX">
             <objects>
@@ -204,8 +329,8 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YhR-RC-bsG">
-                                <rect key="frame" x="0.0" y="1276" width="1024" height="70"/>
+                            <tabBar contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="YhR-RC-bsG">
+                                <rect key="frame" x="0.0" y="1176" width="1024" height="120"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <tabBarItem title="Edit report" image="rectangle.and.pencil.and.ellipsis" catalog="system" id="JyN-wo-Ooe"/>
@@ -223,13 +348,20 @@
                             <constraint firstItem="RYU-FW-xor" firstAttribute="bottom" secondItem="YhR-RC-bsG" secondAttribute="bottom" id="iSP-bO-1Xr"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Identification Success" id="BR8-0c-RqL">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="plus.bubble.fill" catalog="system" id="cQJ-Vd-wBc">
+                            <connections>
+                                <segue destination="3UR-aF-cnk" kind="show" id="rRk-0v-UEj"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="pencil" catalog="system" id="uxG-e1-fr0">
                             <connections>
                                 <segue destination="kEM-nM-dIl" kind="presentation" id="E8o-wb-C0Y"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="firstNameLabel" destination="Mpq-bI-hRZ" id="2lc-lv-C0E"/>
                         <outlet property="lastNameLabel" destination="fa1-xy-xIJ" id="SRb-41-c7x"/>
@@ -244,7 +376,7 @@
             <objects>
                 <viewController id="kEM-nM-dIl" customClass="ChooseCategoryInterventionViewController" customModule="MaintenanceManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tuz-Lh-8Ic" customClass="I">
-                        <rect key="frame" x="0.0" y="0.0" width="704" height="995"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="995.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Nzu-sR-H7P">
@@ -594,7 +726,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="433" height="150"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MachineCell" textLabel="y3q-9t-ShV" detailTextLabel="ou4-no-8Wm" style="IBUITableViewCellStyleSubtitle" id="OzN-VP-Fin">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="machineCell" textLabel="y3q-9t-ShV" detailTextLabel="ou4-no-8Wm" style="IBUITableViewCellStyleSubtitle" id="OzN-VP-Fin">
                                                 <rect key="frame" x="0.0" y="24.5" width="433" height="43.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OzN-VP-Fin" id="r8C-0Q-QCd">
@@ -661,7 +793,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="Vgy-SB-fMb"/>
                     <connections>
-                        <outlet property="MachineTableView" destination="ZLI-A0-Kun" id="oPS-4u-nvV"/>
                         <outlet property="departmentButtonOutlet" destination="G0n-jf-YBk" id="QgD-ir-uwc"/>
                         <outlet property="departmentField" destination="Zqm-ow-5ZB" id="eOJ-iX-bsy"/>
                         <outlet property="departmentTableView" destination="LoW-pg-NlD" id="Kvb-V2-db5"/>
@@ -672,6 +803,7 @@
                         <outlet property="interventionTypeTexField" destination="MOK-I7-cTl" id="BFZ-rE-oxd"/>
                         <outlet property="interventionTypeUiView" destination="7ea-PN-PLC" id="SDZ-za-sBL"/>
                         <outlet property="machineButtonOutlet" destination="B9T-Xh-xow" id="hwG-25-Kts"/>
+                        <outlet property="machineTableView" destination="ZLI-A0-Kun" id="oPS-4u-nvV"/>
                         <outlet property="machineTextField" destination="7q5-KQ-YPG" id="GLI-Fw-Njg"/>
                         <outlet property="machineUiView" destination="tMJ-Tr-1aZ" id="pIf-JS-Miu"/>
                         <outlet property="nonComplianceSwitch" destination="tla-2O-yKn" id="f5U-9R-dJN"/>
@@ -709,12 +841,12 @@
                                                 <size key="shadowOffset" width="1" height="0.0"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Firstname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8mB-Gi-ujt">
-                                                <rect key="frame" x="0.0" y="0.0" width="840" height="47.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="840" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="username"/>
                                             </textField>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ym-Kd-cNW">
-                                                <rect key="frame" x="0.0" y="50" width="840" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="46.5" width="840" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -722,12 +854,12 @@
                                                 <size key="shadowOffset" width="1" height="0.0"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lastname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cTr-uA-jJX">
-                                                <rect key="frame" x="0.0" y="52.5" width="840" height="47"/>
+                                                <rect key="frame" x="0.0" y="49" width="840" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="family-name"/>
                                             </textField>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZ5-Wy-oCt">
-                                                <rect key="frame" x="0.0" y="102" width="840" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="95.5" width="840" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -735,60 +867,82 @@
                                                 <size key="shadowOffset" width="1" height="0.0"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Create password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lLC-iv-xV9">
-                                                <rect key="frame" x="0.0" y="104.5" width="840" height="47.5"/>
+                                                <rect key="frame" x="0.0" y="98" width="840" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="new-password">
                                                     <passwordRules key="passwordRules" passwordRulesDescriptor="required: lower; required: upper"/>
                                                 </textInputTraits>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sJL-Kc-UHT">
-                                                <rect key="frame" x="0.0" y="157" width="840" height="47.5"/>
+                                                <rect key="frame" x="0.0" y="147" width="840" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="new-password"/>
                                             </textField>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ews-q3-S2k">
-                                                <rect key="frame" x="0.0" y="209.5" width="840" height="342.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ews-q3-S2k">
+                                                <rect key="frame" x="0.0" y="196" width="840" height="363.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YRw-Z2-cx5">
-                                                        <rect key="frame" x="0.0" y="48" width="420" height="246"/>
+                                                        <rect key="frame" x="0.0" y="41" width="410" height="281"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Department" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfA-6M-hzQ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="420" height="30"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="410" height="30"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i1H-os-IrX">
-                                                                <rect key="frame" x="0.0" y="30" width="420" height="216"/>
+                                                                <rect key="frame" x="0.0" y="30" width="410" height="216"/>
                                                                 <connections>
                                                                     <outlet property="dataSource" destination="Lod-Yb-imB" id="heR-g0-0UX"/>
                                                                     <outlet property="delegate" destination="Lod-Yb-imB" id="s15-PQ-o90"/>
                                                                 </connections>
                                                             </pickerView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNf-ht-0t7">
+                                                                <rect key="frame" x="0.0" y="246" width="410" height="35"/>
+                                                                <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                                                                <state key="normal" title="Add department">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <segue destination="mAk-61-VPc" kind="show" id="kAh-G8-zaS"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VZ1-Kv-fQR">
-                                                        <rect key="frame" x="420" y="48" width="420" height="246"/>
+                                                        <rect key="frame" x="430" y="41" width="410" height="281"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Job role" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POS-yx-Ara">
-                                                                <rect key="frame" x="0.0" y="0.0" width="420" height="30"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="410" height="30"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="apg-3Y-0bd">
-                                                                <rect key="frame" x="0.0" y="30" width="420" height="216"/>
+                                                                <rect key="frame" x="0.0" y="30" width="410" height="216"/>
                                                                 <connections>
                                                                     <outlet property="dataSource" destination="Lod-Yb-imB" id="fts-SQ-brM"/>
                                                                     <outlet property="delegate" destination="Lod-Yb-imB" id="128-tc-B5A"/>
                                                                 </connections>
                                                             </pickerView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfE-FY-8wY">
+                                                                <rect key="frame" x="0.0" y="246" width="410" height="35"/>
+                                                                <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                                                                <state key="normal" title="Add job role">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <segue destination="oUG-hq-aBM" kind="show" id="sXf-ad-5fX"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOu-hg-b67">
-                                                <rect key="frame" x="0.0" y="557" width="840" height="78"/>
+                                                <rect key="frame" x="0.0" y="564.5" width="840" height="70.5"/>
                                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                 <color key="tintColor" systemColor="linkColor"/>
@@ -915,6 +1069,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add new person" id="OKf-NF-RaR"/>
                     <connections>
+                        <outlet property="addDepartmentButton" destination="FNf-ht-0t7" id="Oi3-xz-xQF"/>
+                        <outlet property="addJobRoleButton" destination="xfE-FY-8wY" id="nsw-qp-KgU"/>
                         <outlet property="confirmPasswordField" destination="sJL-Kc-UHT" id="yeD-aT-pdr"/>
                         <outlet property="createButtonOutlet" destination="KOu-hg-b67" id="yZ6-ti-SaA"/>
                         <outlet property="departmentPickerView" destination="i1H-os-IrX" id="XPI-O0-cSM"/>
@@ -936,7 +1092,179 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-432" y="-627"/>
+            <point key="canvasLocation" x="-657" y="-759"/>
+        </scene>
+        <!--Create new department-->
+        <scene sceneID="DWa-QQ-Isl">
+            <objects>
+                <viewController id="mAk-61-VPc" customClass="NewDepartmentViewController" customModule="MaintenanceManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AiM-nh-I3J">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="mx1-Zo-OcQ">
+                                <rect key="frame" x="20" y="100" width="984" height="1246"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NZQ-Tr-JVS">
+                                        <rect key="frame" x="0.0" y="0.0" width="984" height="40"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New department" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D0O-Eh-Tu4">
+                                                <rect key="frame" x="0.0" y="0.0" width="812" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vka-R5-Nuy">
+                                                <rect key="frame" x="812" y="0.0" width="172" height="40"/>
+                                                <color key="backgroundColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <state key="normal" title="Insert new category"/>
+                                                <connections>
+                                                    <action selector="createNewDepartment" destination="mAk-61-VPc" eventType="touchUpInside" id="M6Z-mJ-q4j"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="bKB-wt-fGg"/>
+                                        </constraints>
+                                    </stackView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jbh-WR-G85">
+                                        <rect key="frame" x="0.0" y="80" width="984" height="1166"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="departmentCell" textLabel="2gT-r3-bX2" style="IBUITableViewCellStyleDefault" id="tnQ-BY-Mgu">
+                                                <rect key="frame" x="0.0" y="24.5" width="984" height="51.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tnQ-BY-Mgu" id="JJJ-hd-rYZ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="984" height="51.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2gT-r3-bX2">
+                                                            <rect key="frame" x="16" y="0.0" width="952" height="51.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="mAk-61-VPc" id="7Ku-LX-8N6"/>
+                                            <outlet property="delegate" destination="mAk-61-VPc" id="wO5-D3-eSX"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="jbh-WR-G85" firstAttribute="top" secondItem="NZQ-Tr-JVS" secondAttribute="bottom" constant="40" id="cee-6j-gwE"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5gn-Mu-NIg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mx1-Zo-OcQ" firstAttribute="leading" secondItem="5gn-Mu-NIg" secondAttribute="leading" constant="20" id="4fR-pL-051"/>
+                            <constraint firstItem="5gn-Mu-NIg" firstAttribute="bottom" secondItem="mx1-Zo-OcQ" secondAttribute="bottom" id="XDO-gC-Jfm"/>
+                            <constraint firstItem="mx1-Zo-OcQ" firstAttribute="top" secondItem="5gn-Mu-NIg" secondAttribute="top" constant="50" id="yRn-E2-wLQ"/>
+                            <constraint firstItem="5gn-Mu-NIg" firstAttribute="trailing" secondItem="mx1-Zo-OcQ" secondAttribute="trailing" constant="20" id="zbr-1R-503"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create new department" id="uKc-eF-zco"/>
+                    <connections>
+                        <outlet property="createNewDepartmentOutlet" destination="vka-R5-Nuy" id="wBI-2O-7ev"/>
+                        <outlet property="departmentTableView" destination="jbh-WR-G85" id="VhP-7t-997"/>
+                        <outlet property="newDepartmentTextField" destination="D0O-Eh-Tu4" id="qk9-iM-GaW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pfK-hg-7xk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-929" y="-1431"/>
+        </scene>
+        <!--Create new job-->
+        <scene sceneID="bMi-bp-P2C">
+            <objects>
+                <viewController id="oUG-hq-aBM" customClass="NewJobRoleViewController" customModule="MaintenanceManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="O3R-8m-3v4">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="sBF-Ae-A1x">
+                                <rect key="frame" x="0.0" y="100" width="1024" height="1246"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="in7-38-x0d">
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="40"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Job Role" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Va-r1-uDi">
+                                                <rect key="frame" x="0.0" y="0.0" width="852" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNn-fn-EKQ">
+                                                <rect key="frame" x="852" y="0.0" width="172" height="40"/>
+                                                <color key="backgroundColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <state key="normal" title="Insert new category"/>
+                                                <connections>
+                                                    <action selector="CreateNewJobActionButton" destination="oUG-hq-aBM" eventType="touchUpInside" id="Bev-7f-ayu"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Goh-BF-Rip"/>
+                                        </constraints>
+                                    </stackView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IX7-0j-tKB">
+                                        <rect key="frame" x="0.0" y="80" width="1024" height="1166"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="JobCell" textLabel="G3M-NR-JDj" style="IBUITableViewCellStyleDefault" id="MPc-zB-lI4">
+                                                <rect key="frame" x="0.0" y="24.5" width="1024" height="51.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MPc-zB-lI4" id="dQC-cr-cSN">
+                                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="51.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="G3M-NR-JDj">
+                                                            <rect key="frame" x="16" y="0.0" width="992" height="51.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="oUG-hq-aBM" id="OW9-1U-ehO"/>
+                                            <outlet property="delegate" destination="oUG-hq-aBM" id="Mcz-IN-tgY"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="IX7-0j-tKB" firstAttribute="top" secondItem="in7-38-x0d" secondAttribute="bottom" constant="40" id="J0q-AO-qaJ"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="J7M-uk-c7h"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sBF-Ae-A1x" firstAttribute="top" secondItem="J7M-uk-c7h" secondAttribute="top" constant="50" id="UyQ-Ge-kFe"/>
+                            <constraint firstItem="J7M-uk-c7h" firstAttribute="trailing" secondItem="sBF-Ae-A1x" secondAttribute="trailing" id="hvo-lo-X4v"/>
+                            <constraint firstItem="sBF-Ae-A1x" firstAttribute="leading" secondItem="O3R-8m-3v4" secondAttribute="leading" id="sC4-lk-vUJ"/>
+                            <constraint firstItem="J7M-uk-c7h" firstAttribute="bottom" secondItem="sBF-Ae-A1x" secondAttribute="bottom" id="ulF-jS-Azx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create new job" id="4eV-rp-oPS"/>
+                    <connections>
+                        <outlet property="createNewJobButton" destination="HNn-fn-EKQ" id="r9z-Q9-yfp"/>
+                        <outlet property="jobTableView" destination="IX7-0j-tKB" id="bqz-lJ-XbH"/>
+                        <outlet property="newJobTextField" destination="9Va-r1-uDi" id="gw0-TV-m0z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hHT-jZ-P2N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-91.40625" y="-1438.0673499267934"/>
         </scene>
         <!--Person Detail View Controller-->
         <scene sceneID="MS7-5b-fdy">
@@ -1103,7 +1431,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2UX-pR-qs5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="389.84375" y="-627.5390625"/>
+            <point key="canvasLocation" x="390" y="-686"/>
         </scene>
     </scenes>
     <resources>
@@ -1113,6 +1441,7 @@
         <image name="login-2" width="24" height="24"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="plus.bubble.fill" catalog="system" width="128" height="110"/>
         <image name="rectangle.and.pencil.and.ellipsis" catalog="system" width="128" height="81"/>
         <image name="tray.full.fill" catalog="system" width="128" height="88"/>
         <image name="wrench" catalog="system" width="128" height="128"/>
@@ -1124,6 +1453,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
