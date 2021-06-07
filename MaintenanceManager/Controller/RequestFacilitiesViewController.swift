@@ -12,9 +12,14 @@ class RequestFacilitiesViewController: UIViewController {
     let interventionTypeDict = ["Amélioration", "Correctif", "Préventif", "Travaux Neuf"]
     var departments = Department.all
     var machines = Machine.all
+    var status = EquipmentStatus.all
     
     @IBOutlet var generalView: UIView!
     
+    @IBOutlet weak var machineStatusButtonOutlet: UIButton!
+    @IBOutlet weak var machineStatusTextField: UITextField!
+    @IBOutlet weak var machineStatusTableView: UITableView!
+    @IBOutlet weak var machineStatusUiView: UIView!
     @IBOutlet weak var interventionTypeButtonOutlet: UIButton!
     @IBOutlet weak var departmentButtonOutlet: UIButton!
     @IBOutlet weak var departmentUiView: UIView!
@@ -36,6 +41,10 @@ class RequestFacilitiesViewController: UIViewController {
         super.viewDidLoad()
         nonComplianceHidden()
         designedView()
+    }
+    
+    @IBAction func machineStatusButton() {
+        showOrHiddenMachineStatusUiView()
     }
     
     @IBAction func backwardBarButtonItem(_ sender: UIBarButtonItem) {
@@ -71,6 +80,14 @@ class RequestFacilitiesViewController: UIViewController {
         }
     }
     
+    private func showOrHiddenMachineStatusUiView() {
+        if machineStatusUiView.isHidden {
+            UIView.transition(with: machineStatusUiView, duration: 0.3, options: .transitionCrossDissolve, animations: {self.machineStatusUiView.isHidden = false})
+        } else {
+            UIView.transition(with: machineStatusUiView, duration: 0.3, options: .transitionCrossDissolve, animations: {self.machineStatusUiView.isHidden = true})
+        }
+    }
+    
     
     private func showOrHiddenInterventionTypeUiView() {
         if interventionTypeUiView.isHidden {
@@ -95,6 +112,20 @@ class RequestFacilitiesViewController: UIViewController {
         designedMachineButton()
         designedDepartmentButton()
         designedInterventionTypeButton()
+        designedRequestTextView()
+        designedMachineStatusUiView()
+        designedMachineStatusButton()
+    }
+    
+    private func designedMachineStatusUiView() {
+        machineStatusUiView.layer.borderWidth = 1
+        machineStatusUiView.layer.cornerRadius = 10
+        machineStatusUiView.layer.borderColor = colorBorderTextField
+        machineStatusUiView.layer.shadowColor = UIColor.black.cgColor
+        machineStatusUiView.layer.shadowOpacity = 0.7
+        machineStatusUiView.layer.shadowOffset = .init(width: 0, height: 4)
+        machineStatusUiView.layer.shadowRadius = 8
+        machineStatusTableView.layer.cornerRadius = 10
     }
     
     private func designedMachineUiView() {
@@ -105,22 +136,29 @@ class RequestFacilitiesViewController: UIViewController {
         machineUiView.layer.shadowOpacity = 0.7
         machineUiView.layer.shadowOffset = .init(width: 0, height: 4)
         machineUiView.layer.shadowRadius = 8
+        machineTableView.layer.cornerRadius = 10
     }
     
     private func designedInterventionTypeButton() {
-        interventionTypeButtonOutlet.layer.borderWidth = 1
+        interventionTypeButtonOutlet.layer.borderWidth = 0.5
         interventionTypeButtonOutlet.layer.borderColor =  colorBorderTextField
         interventionTypeButtonOutlet.layer.cornerRadius = 3
     }
     
+    private func designedMachineStatusButton() {
+        machineStatusButtonOutlet.layer.borderWidth = 0.5
+        machineStatusButtonOutlet.layer.borderColor =  colorBorderTextField
+        machineStatusButtonOutlet.layer.cornerRadius = 3
+    }
+    
     private func designedDepartmentButton() {
-        departmentButtonOutlet.layer.borderWidth = 1
+        departmentButtonOutlet.layer.borderWidth = 0.5
         departmentButtonOutlet.layer.borderColor = colorBorderTextField
         departmentButtonOutlet.layer.cornerRadius = 3
     }
     
     private func designedMachineButton() {
-        machineButtonOutlet.layer.borderWidth = 1
+        machineButtonOutlet.layer.borderWidth = 0.5
         machineButtonOutlet.layer.borderColor = colorBorderTextField
         machineButtonOutlet.layer.cornerRadius = 4
     }
@@ -133,6 +171,7 @@ class RequestFacilitiesViewController: UIViewController {
         interventionTypeUiView.layer.shadowOpacity = 0.7
         interventionTypeUiView.layer.shadowOffset = .init(width: 0, height: 4)
         interventionTypeUiView.layer.shadowRadius = 8
+        interventionTypeTableView.layer.cornerRadius = 10
     }
     
     private func designedDepartmentUiView() {
@@ -143,6 +182,12 @@ class RequestFacilitiesViewController: UIViewController {
         departmentUiView.layer.shadowOpacity = 0.7
         departmentUiView.layer.shadowOffset = .init(width: 0, height: 4)
         departmentUiView.layer.shadowRadius = 8
+        departmentTableView.layer.cornerRadius = 10
+    }
+    
+    private func designedRequestTextView() {
+        requestTextView.layer.borderWidth = 0.5
+        requestTextView.layer.borderColor = colorBorderTextField
     }
     
     private func nonComplianceShow() {
@@ -175,6 +220,8 @@ extension RequestFacilitiesViewController: UITableViewDelegate, UITableViewDataS
             numberSection = departments.count
         } else if tableView == machineTableView {
             numberSection = Machine.listByDepartment(departmentField: departmentField.text!).count
+        } else if tableView == machineStatusTableView {
+            numberSection = status.count
         }
             return numberSection
     }
@@ -197,6 +244,11 @@ extension RequestFacilitiesViewController: UITableViewDelegate, UITableViewDataS
             let machine = Machine.listByDepartment(departmentField: departmentField.text!)[indexPath.row]
             cell.textLabel?.text = machine.name
             cell.detailTextLabel?.text = machine.serialNumber
+        } else
+        if tableView == machineStatusTableView {
+            cell =  tableView.dequeueReusableCell(withIdentifier: "MachineStatus", for: indexPath)
+            let status = status[indexPath.row]
+            cell.textLabel?.text = status.state
         }
         return cell
     }
@@ -211,9 +263,13 @@ extension RequestFacilitiesViewController: UITableViewDelegate, UITableViewDataS
             machineTextField.text = ""
             departmentUiView.isHidden = true
         } else if tableView == machineTableView {
-            let machineSelected = MachineList.filterMachineByDepartment(field: departmentField.text!)[indexPath.row]
-            machineTextField.text = machineSelected.machineName + " - S/N: " + machineSelected.serialNumber
+            let machineSelected = Machine.listByDepartment(departmentField: departmentField.text!)[indexPath.row]
+            machineTextField.text = machineSelected.name! + " - S/N: " + machineSelected.serialNumber!
             machineUiView.isHidden = true
+        } else if tableView == machineStatusTableView {
+            let select = status[indexPath.row]
+            machineStatusTextField.text = select.state
+            machineStatusUiView.isHidden = true
         }
     }
 }

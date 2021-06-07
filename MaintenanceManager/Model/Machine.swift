@@ -17,7 +17,32 @@ class Machine: NSManagedObject {
         }
         return machines
      }
+    
+    static var orderByDepartment: [[Machine]] {
+        let request: NSFetchRequest<Machine> = Machine.fetchRequest()
+//        request.sortDescriptors = [
+//            NSSortDescriptor(key: "machine.name", ascending: true)]
+        guard let machine = try? AppDelegate.viewContext.fetch(request) else {
+            return []
+        }
+        return machine.convertedToArrayOfArray
+    }
 }
+
+extension Array where Element == Machine {
+    var convertedToArrayOfArray: [[Machine]] {
+        var dict = [Department: [Machine]]()
+        for machine in self where machine.department != nil {
+            dict[machine.department!, default: []].append(machine)
+        }
+        var result = [[Machine]]()
+        for (_, val) in dict {
+            result.append(val)
+        }
+        return result
+    }
+}
+
 
 extension Machine {
     static func listByDepartment(departmentField: String) -> [Machine] {

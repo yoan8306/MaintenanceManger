@@ -29,9 +29,6 @@ var personSelectedCell = Person()
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var confirmPasswordField: UITextField!
-    @IBOutlet weak var addDepartmentButton: UIButton!
-    @IBOutlet weak var addJobRoleButton: UIButton!
-    
     
     @IBAction func hideKeyboard(_ sender: UITapGestureRecognizer) {
         firstNameField.resignFirstResponder()
@@ -41,7 +38,6 @@ var personSelectedCell = Person()
     
     override func viewDidLoad() {
         persons = Person.all
-        designedButtonAdd()
         createButtonDesign()
     }
     
@@ -59,11 +55,6 @@ var personSelectedCell = Person()
         } else {
            return
         }
-    }
-    
-    private func designedButtonAdd() {
-        addDepartmentButton.layer.cornerRadius = 8
-        addJobRoleButton.layer.cornerRadius = 8
     }
     
     private func addPerson() {
@@ -92,7 +83,6 @@ var personSelectedCell = Person()
         person.identifiant = identifiant
         person.job = getSelectJob()
         try? AppDelegate.viewContext.save()
-        
     }
     
     private func getSelectDepartment() -> Department? {
@@ -246,5 +236,4 @@ extension CreatePersonViewController: UIPickerViewDelegate, UIPickerViewDataSour
         }
         return ""
     }
-    
 }

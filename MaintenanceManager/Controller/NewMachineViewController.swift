@@ -15,14 +15,14 @@ class NewMachineViewController: UIViewController {
     @IBOutlet weak var createMachineOutletButton: UIButton!
     @IBOutlet weak var machineTableView: UITableView!
     
-    var machines = Machine.all
+    var machines = Machine.orderByDepartment
     var departments = Department.all
     var refreshControl = UIRefreshControl()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        machines = Machine.all
+        machines = Machine.orderByDepartment
         machineTableView.reloadData()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
@@ -31,7 +31,7 @@ class NewMachineViewController: UIViewController {
         
     }
     @objc func refresh(_ sender: AnyObject) {
-        machines = Machine.all
+        machines = Machine.orderByDepartment
         machineTableView.reloadData()
         refreshControl.endRefreshing()
     }
@@ -39,11 +39,12 @@ class NewMachineViewController: UIViewController {
         if checkDoubleMachineInList() {
             saveMachine()
         }
-        machines = Machine.all
+        machines = Machine.orderByDepartment
         machineTableView.reloadData()
     }
     
     private func checkDoubleMachineInList() -> Bool {
+        let machines = Machine.all
         let newNameMachine = newMachineTextField.text?.capitalizingFirstLetter().trimmingCharacters(in: .whitespaces)
         let newSerialNumber = newSerialNumberTextField.text
         var check = true
@@ -76,6 +77,8 @@ class NewMachineViewController: UIViewController {
             try  AppDelegate.viewContext.save()
            let messageSuccess = AlertMessage.presentAlert(alertTitle: "Success", alertMessage: "La nouvelle machine a été ajoutéé à la liste", buttonTitle: "OK", alertStyle: .cancel)
             present(messageSuccess, animated: true)
+            newMachineTextField.text = ""
+            newSerialNumberTextField.text = ""
         } catch  {
             let messageError = AlertMessage.presentAlert(alertTitle: "Error", alertMessage: "Une erreur est survenue pendant la sauvegarde de la machine", buttonTitle: "OK", alertStyle: .cancel)
             present(messageError, animated: true)
@@ -90,8 +93,12 @@ class NewMachineViewController: UIViewController {
 }
 
 extension NewMachineViewController : UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return machines.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        machines.count
+        machines[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -99,18 +106,30 @@ extension NewMachineViewController : UITableViewDelegate, UITableViewDataSource 
             return UITableViewCell()
         }
         
-        let machine = machines[indexPath.row]
+        let machine = machines[indexPath.section][indexPath.row]
         
         cell.configureMachine(machineName: machine.name ?? "No name", serialNumber: machine.serialNumber ?? "No serial number", machineDepartment: machine.department?.title ?? "no department")
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let titleDepartment = machines[section].first?.department, let department = titleDepartment.title else {
+            return nil
+        }
+        var totalMachine = 0
+        for _ in machines[section] {
+            totalMachine += 1
+        }
+        let titleHeader = department +  ": \(totalMachine)"
+        return titleHeader
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let commit = machines[indexPath.row]
+            let commit = machines[indexPath.section][indexPath.row]
             AppDelegate.viewContext.delete(commit)
-            machines.remove(at: indexPath.row)
+            machines[indexPath.section].remove(at: indexPath.row)
             machineTableView.deleteRows(at: [indexPath], with: .left)
             try? AppDelegate.viewContext.save()
         }

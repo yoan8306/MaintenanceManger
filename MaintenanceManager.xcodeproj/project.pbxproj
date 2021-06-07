@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F03CF00265D43E90059781D /* machineList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F03CEFF265D43E90059781D /* machineList.swift */; };
+		5F2848F92667BD4C007C62C9 /* EquipmentStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2848F82667BD4C007C62C9 /* EquipmentStatus.swift */; };
 		5F2CD9F92642ACC9003DBC0E /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2CD9F82642ACC9003DBC0E /* Person.swift */; };
 		5F2CD9FC2642AEA7003DBC0E /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2CD9FB2642AEA7003DBC0E /* Department.swift */; };
 		5F2CDA002642AF4D003DBC0E /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2CD9FF2642AF4D003DBC0E /* Job.swift */; };
@@ -32,11 +32,13 @@
 		5FA4D6CD2664BB3900D1153B /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4D6CC2664BB3900D1153B /* AlertMessage.swift */; };
 		5FC130782651BE5C00412A17 /* PersonLogged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC130772651BE5C00412A17 /* PersonLogged.swift */; };
 		5FCBCDF226641D4C00E0B14D /* NewJobRoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCBCDF126641D4C00E0B14D /* NewJobRoleViewController.swift */; };
+		5FE17665266D5B3400C0E617 /* SettingAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE17664266D5B3400C0E617 /* SettingAdminViewController.swift */; };
+		5FE17667266D5CAD00C0E617 /* NewEquipmentStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE17666266D5CAD00C0E617 /* NewEquipmentStatusViewController.swift */; };
 		5FEE6F8C2662D0DB004C5E48 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEE6F8B2662D0DB004C5E48 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5F03CEFF265D43E90059781D /* machineList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = machineList.swift; sourceTree = "<group>"; };
+		5F2848F82667BD4C007C62C9 /* EquipmentStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentStatus.swift; sourceTree = "<group>"; };
 		5F2CD9F82642ACC9003DBC0E /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		5F2CD9FB2642AEA7003DBC0E /* Department.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
 		5F2CD9FF2642AF4D003DBC0E /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
@@ -63,6 +65,8 @@
 		5FA4D6CC2664BB3900D1153B /* AlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
 		5FC130772651BE5C00412A17 /* PersonLogged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonLogged.swift; sourceTree = "<group>"; };
 		5FCBCDF126641D4C00E0B14D /* NewJobRoleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewJobRoleViewController.swift; sourceTree = "<group>"; };
+		5FE17664266D5B3400C0E617 /* SettingAdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingAdminViewController.swift; sourceTree = "<group>"; };
+		5FE17666266D5CAD00C0E617 /* NewEquipmentStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEquipmentStatusViewController.swift; sourceTree = "<group>"; };
 		5FEE6F8B2662D0DB004C5E48 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,9 +118,9 @@
 				5F2CD9FB2642AEA7003DBC0E /* Department.swift */,
 				5F2CD9FF2642AF4D003DBC0E /* Job.swift */,
 				5F34B5302653DEC40083473C /* Report.swift */,
-				5F03CEFF265D43E90059781D /* machineList.swift */,
 				5FA4D6CC2664BB3900D1153B /* AlertMessage.swift */,
 				5F5A6B2C26663B1C00AAFB9C /* Machine.swift */,
+				5F2848F82667BD4C007C62C9 /* EquipmentStatus.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -145,6 +149,8 @@
 				5F41AABF26617F930047C622 /* NewDepartmentViewController.swift */,
 				5FCBCDF126641D4C00E0B14D /* NewJobRoleViewController.swift */,
 				5F5A6B2E2666427000AAFB9C /* NewMachineViewController.swift */,
+				5FE17664266D5B3400C0E617 /* SettingAdminViewController.swift */,
+				5FE17666266D5CAD00C0E617 /* NewEquipmentStatusViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -257,6 +263,7 @@
 				5F2CD9F92642ACC9003DBC0E /* Person.swift in Sources */,
 				5F6D6F462641E23200D014B3 /* MaintenanceManager.xcdatamodeld in Sources */,
 				5F2CDA072642C3F5003DBC0E /* CreatePersonViewController.swift in Sources */,
+				5F2848F92667BD4C007C62C9 /* EquipmentStatus.swift in Sources */,
 				5F2CDA0B2642CA43003DBC0E /* PersonTableViewCell.swift in Sources */,
 				5FA4D6CD2664BB3900D1153B /* AlertMessage.swift in Sources */,
 				5F6D6F3C2641E23200D014B3 /* AppDelegate.swift in Sources */,
@@ -268,10 +275,11 @@
 				5FEE6F8C2662D0DB004C5E48 /* Extension.swift in Sources */,
 				5F2CDA002642AF4D003DBC0E /* Job.swift in Sources */,
 				5F2CD9FC2642AEA7003DBC0E /* Department.swift in Sources */,
+				5FE17665266D5B3400C0E617 /* SettingAdminViewController.swift in Sources */,
 				5F89BF5D264DB880004CB332 /* PersonDetailViewController.swift in Sources */,
 				5F6EE4692654443F008773D1 /* ChooseCategoryInterventionViewController.swift in Sources */,
 				5F2CDA0E26433624003DBC0E /* SuccessViewController.swift in Sources */,
-				5F03CF00265D43E90059781D /* machineList.swift in Sources */,
+				5FE17667266D5CAD00C0E617 /* NewEquipmentStatusViewController.swift in Sources */,
 				5FC130782651BE5C00412A17 /* PersonLogged.swift in Sources */,
 				5F2CDA042642B1A8003DBC0E /* IdentificationConnexionViewController.swift in Sources */,
 			);

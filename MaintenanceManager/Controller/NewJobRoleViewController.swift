@@ -42,14 +42,13 @@ class NewJobRoleViewController: UIViewController {
         let newJob = newJobTextField.text?.capitalizingFirstLetter().trimmingCharacters(in: .whitespaces)
         let addNewJob = Job(context: AppDelegate.viewContext)
         addNewJob.jobRole = newJob
-        newJobTextField.text = ""
         do {
             let successMessage = AlertMessage.presentAlert(alertTitle: "Success", alertMessage: "Success", buttonTitle: "OK", alertStyle: .cancel)
             try AppDelegate.viewContext.save()
             jobs = Job.all
             jobTableView.reloadData()
             present(successMessage, animated: true)
-            
+            newJobTextField.text = ""
         } catch  {
             let errorMessage = AlertMessage.presentAlert(alertTitle: "Error", alertMessage: "Une erreur est survenue lors de la sauvegarde.", buttonTitle: "OK", alertStyle: .cancel)
             jobs = Job.all

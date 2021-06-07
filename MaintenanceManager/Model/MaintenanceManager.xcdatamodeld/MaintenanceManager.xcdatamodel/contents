@@ -5,6 +5,10 @@
         <relationship name="machine" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Machine" inverseName="department" inverseEntity="Machine"/>
         <relationship name="person" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="department" inverseEntity="Person"/>
     </entity>
+    <entity name="EquipmentStatus" representedClassName=".EquipmentStatus" syncable="YES" codeGenerationType="category">
+        <attribute name="state" optional="YES" attributeType="String"/>
+        <relationship name="machine" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Machine" inverseName="equipmentStatus" inverseEntity="Machine"/>
+    </entity>
     <entity name="Job" representedClassName=".Job" syncable="YES" codeGenerationType="category">
         <attribute name="jobRole" optional="YES" attributeType="String"/>
         <relationship name="person" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="job" inverseEntity="Person"/>
@@ -13,6 +17,7 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="serialNumber" optional="YES" attributeType="String" defaultValueString="No serial number"/>
         <relationship name="department" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Department" inverseName="machine" inverseEntity="Department"/>
+        <relationship name="equipmentStatus" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EquipmentStatus" inverseName="machine" inverseEntity="EquipmentStatus"/>
         <relationship name="report" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Report" inverseName="machine" inverseEntity="Report"/>
     </entity>
     <entity name="Person" representedClassName=".Person" syncable="YES" codeGenerationType="category">
@@ -35,9 +40,10 @@
     </entity>
     <elements>
         <element name="Department" positionX="-289.9609985351562" positionY="83.59280395507812" width="128" height="88"/>
+        <element name="EquipmentStatus" positionX="442.2550048828125" positionY="162.3067321777343" width="128" height="73"/>
         <element name="Job" positionX="-255.3903198242188" positionY="203.1885681152344" width="128" height="73"/>
+        <element name="Machine" positionX="87.924072265625" positionY="133.4931640625" width="128" height="118"/>
         <element name="Person" positionX="-559.1846923828125" positionY="172.7144317626953" width="136.4334106445312" height="148"/>
         <element name="Report" positionX="-248.1791381835937" positionY="285.6499938964844" width="128" height="148"/>
-        <element name="Machine" positionX="-62.9808349609375" positionY="-3.299713134765625" width="128" height="103"/>
     </elements>
 </model>
