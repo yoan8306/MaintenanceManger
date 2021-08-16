@@ -23,18 +23,18 @@ class IdentificationConnexionViewController: UIViewController {
     @IBAction func plusButton(_ sender: UIBarButtonItem) {
         superUserField.becomeFirstResponder()
         UIView.transition(with: AccessSuperUserView, duration: 0.5, options:.transitionCurlUp , animations: { self.AccessSuperUserView.isHidden = false})
-        //        principalView.alpha = 0.7
+//        principalView.alpha = 0.7
         addBlurEffect()
     }
     @IBAction func superUserButton() {
         if superUserField.text == "Admin" && passwordSuperUserField.text == "" { //"MasterKey" {
-            initialiseSuperUserView()
+           initialiseSuperUserView()
             performSegue(withIdentifier: "bddSuperUserSegue", sender: self)
         }
     }
     
     @IBAction func activeBarButton() {
-        if counter >= 2 {
+        if counter == 1 {
             AccessSuperUserView.layer.borderWidth = 0.8
             AccessSuperUserView.layer.cornerRadius = 8
             self.navigationItem.rightBarButtonItem = self.addPersonBarButton
@@ -49,23 +49,23 @@ class IdentificationConnexionViewController: UIViewController {
                 if findPerson.password == passwordField.text {
                     PersonLogged.personLogged = findPerson.identifiant!
                     success = true
-                    initialiseView()
+                           initialiseView()
                     animationSuccessButton()
                 }
             }
         }
         if !success {
-            animationErrorConnexionButton()
+        animationErrorConnexionButton()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initialiseSuperUserView()
-    }
+        }
     
     override func viewWillAppear(_ animated: Bool) {
-        initialiseView()
+       initialiseView()
         initialiseSuperUserView()
     }
     
@@ -76,10 +76,10 @@ class IdentificationConnexionViewController: UIViewController {
         view.insertSubview(blurView, at: 2)
         blurView.tag = 1
         NSLayoutConstraint.activate([
-            blurView.topAnchor.constraint(equalTo: view.topAnchor),
-            blurView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            blurView.heightAnchor.constraint(equalTo: view.heightAnchor),
-            blurView.widthAnchor.constraint(equalTo: view.widthAnchor)
+          blurView.topAnchor.constraint(equalTo: view.topAnchor),
+          blurView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+          blurView.heightAnchor.constraint(equalTo: view.heightAnchor),
+          blurView.widthAnchor.constraint(equalTo: view.widthAnchor)
         ])
     }
     
@@ -144,7 +144,7 @@ extension IdentificationConnexionViewController {
     
     @IBAction func hideKeyboard(_ sender: UITapGestureRecognizer) {
         counter = 0
-        //        principalView.alpha = 1
+//        principalView.alpha = 1
         identifiantField.resignFirstResponder()
         passwordField.resignFirstResponder()
         superUserField.text = ""

@@ -36,20 +36,11 @@ class RequestFacilitiesViewController: UIViewController {
     @IBOutlet weak var machineButtonOutlet: UIButton!
     @IBOutlet weak var machineUiView: UIView!
     @IBOutlet weak var machineTableView: UITableView!
-    @IBOutlet weak var createRequestButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         nonComplianceHidden()
         designedView()
-    }
-    
-    @IBAction func createRequest() {
-      //  print(getMachineSelected())
-    }
-    
-    private func addRequest() {
-        let request = requestTextView.text
     }
     
     @IBAction func machineStatusButton() {
@@ -264,26 +255,18 @@ extension RequestFacilitiesViewController: UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == interventionTypeTableView {
-            guard let cell = tableView.cellForRow(at: indexPath) else { return }
-            cell.accessoryType = .checkmark
         interventionTypeTexField.text = interventionTypeDict[indexPath.row]
         interventionTypeUiView.isHidden = true
         } else if tableView == departmentTableView {
-            guard let cell = tableView.cellForRow(at: indexPath) else { return }
-            cell.accessoryType = .checkmark
             let select = departments[indexPath.row]
             departmentField.text = select.title
             machineTextField.text = ""
             departmentUiView.isHidden = true
         } else if tableView == machineTableView {
-            guard let cell = tableView.cellForRow(at: indexPath) else { return }
-            cell.accessoryType = .checkmark
             let machineSelected = Machine.listByDepartment(departmentField: departmentField.text!)[indexPath.row]
             machineTextField.text = machineSelected.name! + " - S/N: " + machineSelected.serialNumber!
             machineUiView.isHidden = true
         } else if tableView == machineStatusTableView {
-            guard let cell = tableView.cellForRow(at: indexPath) else { return }
-            cell.accessoryType = .checkmark
             let select = status[indexPath.row]
             machineStatusTextField.text = select.state
             machineStatusUiView.isHidden = true
